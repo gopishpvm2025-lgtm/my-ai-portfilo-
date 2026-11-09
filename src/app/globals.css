@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: #080B16; color: #F8FAFC;
+  font-family: var(--font-inter), sans-serif;
+  background-image: radial-gradient(ellipse at 15% 5%, rgba(139,92,246,.13), transparent 34%),
+                    radial-gradient(ellipse at 90% 28%, rgba(34,211,238,.08), transparent 28%);
+}
+::selection { background: rgba(139,92,246,.45); color: white; }
+a { color: inherit; text-decoration: none; }
+button, a { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 2px solid #22D3EE; outline-offset: 4px; }
+.container-shell { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+.glass { background: rgba(16,23,41,.72); border: 1px solid rgba(148,163,184,.15); backdrop-filter: blur(18px); }
+.gradient-text { background: linear-gradient(100deg,#C4B5FD 5%,#8B5CF6 48%,#22D3EE 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.grid-bg {
+  background-image: linear-gradient(rgba(148,163,184,.055) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(148,163,184,.055) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, black, transparent 88%);
+}
+.particle-canvas { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; opacity:.65; }
+.section-kicker { color:#A78BFA; font: 600 11px/1.4 ui-monospace, monospace; letter-spacing:.18em; text-transform:uppercase; }
+.card-border { position:relative; isolation:isolate; }
+.card-border::before {
+  content:""; position:absolute; inset:-1px; border-radius:inherit; padding:1px;
+  background:linear-gradient(135deg,rgba(139,92,246,.5),rgba(34,211,238,.12),rgba(236,72,153,.25));
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; z-index:-1;
+}
+html { scroll-padding-top: 90px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior:auto; }
+  *, *::before, *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
+}
